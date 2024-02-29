@@ -4,7 +4,6 @@ import routes from './router';
 
 export default defineConfig({
   title: 'tTiny',
-  layout: {},
   nodeModulesTransform: {
     type: 'none',
   },
