@@ -5,27 +5,27 @@ export default [
     component: '@/components/Layout',
     routes: [
       {
-        path: '/overview',
+        path: '/tinyChart/overview',
         component: 'Overview',
       },
       {
-        path: '/echarts',
+        path: '/tinyChart/echarts',
         component: 'Echarts',
       },
       {
-        path: '/antv/g2',
+        path: '/tinyChart/antv/g2',
         component: 'G2',
       },
       {
-        path: '/antv/g6',
+        path: '/tinyChart/antv/g6',
         component: 'G6',
       },
       {
-        path: '/antv/x6',
+        path: '/tinyChart/antv/x6',
         component: 'X6',
       },
       {
-        path: '/todo',
+        path: '/tinyChart/todo',
         component: 'Todo',
       },
       {

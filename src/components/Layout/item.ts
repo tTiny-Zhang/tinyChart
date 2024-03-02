@@ -1,26 +1,26 @@
 export const items = [
   {
-    key: '/overview',
+    key: '/tinyChart/overview',
     label: 'Overview',
   },
   {
-    key: '/echarts',
+    key: '/tinyChart/echarts',
     label: 'Echarts',
   },
   {
-    key: '/antv/g2',
+    key: '/tinyChart/antv/g2',
     label: 'antv/G2',
   },
   {
-    key: '/antv/g6',
+    key: '/tinyChart/antv/g6',
     label: 'antv/G6',
   },
   {
-    key: '/antv/x6',
+    key: '/tinyChart/antv/x6',
     label: 'antv/x6',
   },
   {
-    key: '/todo',
+    key: '/tinyChart/todo',
     label: 'todo',
   },
 ];

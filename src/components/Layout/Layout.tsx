@@ -11,7 +11,9 @@ const { Header, Content, Footer } = Layout;
 
 const Layouts: React.FC<any> = ({ children }) => {
   const { query = {}, pathname = '' } = useLocation() as any;
-  const [selectedKeys, setSelectedKeys] = useState<string[]>(['/overview']);
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([
+    '/tinyChart/overview',
+  ]);
 
   const onClick = useCallback(({ key: pathname }) => {
     history.push({
@@ -19,12 +21,13 @@ const Layouts: React.FC<any> = ({ children }) => {
       query,
     });
   }, []);
+  console.log(pathname);
 
   useDebounceEffect(
     () => {
-      if (!pathname) {
-        history.push('/overview');
-        setSelectedKeys([pathname]);
+      if (!pathname || pathname === '/') {
+        history.push('/tinyChart/overview');
+        // setSelectedKeys([pathname]);
       }
       if (pathname) {
         setSelectedKeys([pathname]);
