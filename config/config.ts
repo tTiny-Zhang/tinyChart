@@ -7,11 +7,13 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  favicon: false,
   publicPath: './',
   // history: { type: 'hash' },
   antd: {},
   // exportStatic: {},
   dynamicImport: {},
+  runtimePublicPath: true,
   routes,
   fastRefresh: {},
   outputPath: 'docs',
