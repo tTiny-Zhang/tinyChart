@@ -7,7 +7,7 @@ import style from './style.less';
 import { useDebounceEffect } from 'ahooks';
 import { GithubOutlined } from '@ant-design/icons';
 
-const { Header, Content } = Layout;
+const { Header, Content, Footer } = Layout;
 
 const Layouts: React.FC<any> = ({ children }) => {
   const { query = {}, pathname = '' } = useLocation() as any;
@@ -54,6 +54,7 @@ const Layouts: React.FC<any> = ({ children }) => {
       <Content style={{ padding: '0 50px' }}>
         <div className="site-layout-content">{children}</div>
       </Content>
+      <Footer style={{ textAlign: 'center' }}>Made with by tTiny</Footer>
     </Layout>
   );
 };
