@@ -7,6 +7,7 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  publicPath: './',
   // history: { type: 'hash' },
   antd: {},
   // exportStatic: {},
