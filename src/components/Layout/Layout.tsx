@@ -1,33 +1,57 @@
-import React, { useEffect } from 'react';
-import { Breadcrumb, Layout, Menu } from 'antd';
-import style from './style.less';
+import React, { useCallback, useState } from 'react';
+import { Button, Layout, Menu } from 'antd';
+import { items } from './item';
+import { useLocation, history } from 'umi';
 
-const { Header, Content, Footer } = Layout;
+import style from './style.less';
+import { useDebounceEffect } from 'ahooks';
+import { GithubOutlined } from '@ant-design/icons';
+
+const { Header, Content } = Layout;
 
 const Layouts: React.FC<any> = ({ children }) => {
+  const { query = {}, pathname = '' } = useLocation() as any;
+  const [selectedKeys, setSelectedKeys] = useState<string[]>();
+
+  const onClick = useCallback(({ key: pathname }) => {
+    history.push({
+      pathname,
+      query,
+    });
+  }, []);
+
+  useDebounceEffect(
+    () => {
+      if (!pathname) {
+        history.push('/overview');
+        setSelectedKeys([pathname]);
+      }
+      if (pathname) {
+        setSelectedKeys([pathname]);
+      }
+    },
+    [pathname],
+    { wait: 1 },
+  );
+
   return (
     <Layout className="layout">
-      <Header>
-        <div className="logo" />
+      <Header className={style.header}>
         <Menu
+          onClick={onClick}
+          selectedKeys={selectedKeys}
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['2']}
-          items={new Array(6).fill(null).map((_, index) => {
-            const key = index + 1;
-            return {
-              key,
-              label: `nav ${key}`,
-            };
-          })}
+          items={items}
+          className={style.menu}
+        />
+        <Button
+          type="dashed"
+          icon={<GithubOutlined />}
+          href="https://github.com/tTiny-Zhang"
         />
       </Header>
       <Content style={{ padding: '0 50px' }}>
-        <Breadcrumb style={{ margin: '16px 0' }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
         <div className="site-layout-content">{children}</div>
       </Content>
     </Layout>

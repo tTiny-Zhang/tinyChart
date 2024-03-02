@@ -10,4 +10,8 @@ export default defineConfig({
   antd: {},
   routes,
   fastRefresh: {},
+  theme: {
+    'primary-color': '#1DA57A',
+    '@border-radius-base': '6px',
+  },
 });
