@@ -11,7 +11,7 @@ const { Header, Content, Footer } = Layout;
 
 const Layouts: React.FC<any> = ({ children }) => {
   const { query = {}, pathname = '' } = useLocation() as any;
-  const [selectedKeys, setSelectedKeys] = useState<string[]>();
+  const [selectedKeys, setSelectedKeys] = useState<string[]>(['/overview']);
 
   const onClick = useCallback(({ key: pathname }) => {
     history.push({
