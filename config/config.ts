@@ -9,7 +9,7 @@ export default defineConfig({
   },
   history: { type: 'hash' },
   antd: {},
-  exportStatic: {},
+  // exportStatic: {},
   routes,
   fastRefresh: {},
   outputPath: 'docs',
