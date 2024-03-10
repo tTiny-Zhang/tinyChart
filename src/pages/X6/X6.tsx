@@ -3,7 +3,7 @@ import { Card, Empty } from 'antd';
 import style from './style.less';
 import echarts from '@/components/MiniEcharts';
 
-const Overview: React.FC<any> = () => {
+const X6: React.FC<any> = () => {
   // useEffect(() => {
   //   // if (!document.getElementById('chartContainer')) {
   //   //   return
@@ -31,10 +31,10 @@ const Overview: React.FC<any> = () => {
   // }, []);
   return (
     <>
-      <Card className={style.container} title="overview">
+      <Card className={style.container} title="X6">
         <Empty />
       </Card>
     </>
   );
 };
-export default Overview;
+export default X6;

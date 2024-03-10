@@ -1,41 +1,39 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, lazy, useMemo } from 'react';
 import { Button, Layout, Menu } from 'antd';
 import { items } from './item';
-import { useLocation, history } from 'umi';
 
 import style from './style.less';
-import { useDebounceEffect } from 'ahooks';
 import { GithubOutlined } from '@ant-design/icons';
+import Overview from '@/pages/Overview';
+import Echarts from '@/pages/Echarts';
+import G2 from '@/pages/G2';
+import G6 from '@/pages/G6';
+import X6 from '@/pages/X6';
+import Todo from '@/pages/Todo';
 
 const { Header, Content, Footer } = Layout;
 
+const componentsList: Record<string, any> = {
+  overview: <Overview />,
+  echarts: <Echarts />,
+  g2: <G2 />,
+  g6: <G6 />,
+  x6: <X6 />,
+  todo: <Todo />,
+};
+
 const Layouts: React.FC<any> = ({ children }) => {
-  const { query = {}, pathname = '' } = useLocation() as any;
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([
-    '/tinyChart/overview',
-  ]);
+  const [selectedKeys, setSelectedKeys] = useState<string[]>(['overview']);
 
   const onClick = useCallback(({ key: pathname }) => {
-    history.push({
-      pathname,
-      query,
-    });
+    setSelectedKeys([pathname]);
   }, []);
-  console.log(pathname);
 
-  useDebounceEffect(
-    () => {
-      if (!pathname || pathname === '/') {
-        history.push('/tinyChart/overview');
-        // setSelectedKeys([pathname]);
-      }
-      if (pathname) {
-        setSelectedKeys([pathname]);
-      }
-    },
-    [pathname],
-    { wait: 1 },
-  );
+  const renderChildren = useMemo(() => {
+    const current = selectedKeys[0];
+
+    return componentsList[current];
+  }, [selectedKeys]);
 
   return (
     <Layout className="layout">
@@ -55,7 +53,7 @@ const Layouts: React.FC<any> = ({ children }) => {
         />
       </Header>
       <Content style={{ padding: '0 50px' }}>
-        <div className="site-layout-content">{children}</div>
+        <div className="site-layout-content">{renderChildren}</div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Made with by tTiny</Footer>
     </Layout>
