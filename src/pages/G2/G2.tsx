@@ -1,38 +1,45 @@
-import React, { useEffect } from 'react';
-import { Card, Empty } from 'antd';
+import React from 'react';
+import { Card } from 'antd';
 import style from './style.less';
-import echarts from '@/components/MiniEcharts';
+import * as Chart from './components';
+
+const gridStyle: React.CSSProperties = {
+  width: '50%',
+  height: '320px',
+  textAlign: 'center',
+};
 
 const G2: React.FC<any> = () => {
-  // useEffect(() => {
-  //   // if (!document.getElementById('chartContainer')) {
-  //   //   return
-  //   // }
-  //   var myChart = echarts.init(document.getElementById('chartContainer'));
-  //   myChart.setOption({
-  //     title: {
-  //       text: 'ECharts 入门示例',
-  //     },
-  //     // width: 300,
-  //     // height: 300,
-  //     tooltip: {},
-  //     xAxis: {
-  //       data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
-  //     },
-  //     yAxis: {},
-  //     series: [
-  //       {
-  //         name: '销量',
-  //         type: 'bar',
-  //         data: [5, 20, 36, 10, 10, 20],
-  //       },
-  //     ],
-  //   });
-  // }, []);
   return (
     <>
       <Card className={style.container} title="G2">
-        <Empty />
+        <Card.Grid style={{ ...gridStyle, width: '100%' }} key="Interval">
+          <Chart.PlotFill />
+        </Card.Grid>
+        <Card.Grid style={gridStyle} key="Interval">
+          <Chart.Interval />
+        </Card.Grid>
+        <Card.Grid style={gridStyle} key="Line">
+          <Chart.Line />
+        </Card.Grid>
+        <Card.Grid style={gridStyle} key="Point">
+          <Chart.Point />
+        </Card.Grid>
+        <Card.Grid style={gridStyle} key="Area">
+          <Chart.Area />
+        </Card.Grid>
+        <Card.Grid style={gridStyle} key="Cell">
+          <Chart.Cell />
+        </Card.Grid>
+        <Card.Grid style={gridStyle} key="Pie">
+          <Chart.Pie />
+        </Card.Grid>
+        <Card.Grid style={gridStyle} key="Rose">
+          <Chart.Rose />
+        </Card.Grid>
+        <Card.Grid style={gridStyle} key="Radial">
+          <Chart.Radial />
+        </Card.Grid>
       </Card>
     </>
   );

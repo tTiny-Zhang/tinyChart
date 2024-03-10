@@ -53,7 +53,7 @@ const Layouts: React.FC<any> = ({ children }) => {
         />
       </Header>
       <Content style={{ padding: '0 50px' }}>
-        <div className="site-layout-content">{renderChildren}</div>
+        <div>{renderChildren}</div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Made with by tTiny</Footer>
     </Layout>
