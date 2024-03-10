@@ -1,38 +1,21 @@
-import React, { useEffect } from 'react';
-import { Card, Empty } from 'antd';
+import React from 'react';
+import { Card } from 'antd';
 import style from './style.less';
-import echarts from '@/components/MiniEcharts';
+import DecisionTree from './components/DecisionTree';
+
+const gridStyle: React.CSSProperties = {
+  width: '100%%',
+  height: '500px',
+  textAlign: 'center',
+};
 
 const G6: React.FC<any> = () => {
-  // useEffect(() => {
-  //   // if (!document.getElementById('chartContainer')) {
-  //   //   return
-  //   // }
-  //   var myChart = echarts.init(document.getElementById('chartContainer'));
-  //   myChart.setOption({
-  //     title: {
-  //       text: 'ECharts 入门示例',
-  //     },
-  //     // width: 300,
-  //     // height: 300,
-  //     tooltip: {},
-  //     xAxis: {
-  //       data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
-  //     },
-  //     yAxis: {},
-  //     series: [
-  //       {
-  //         name: '销量',
-  //         type: 'bar',
-  //         data: [5, 20, 36, 10, 10, 20],
-  //       },
-  //     ],
-  //   });
-  // }, []);
   return (
     <>
       <Card className={style.container} title="G6">
-        <Empty />
+        <Card.Grid style={{ ...gridStyle, width: '100%' }} key="Interval">
+          <DecisionTree />
+        </Card.Grid>
       </Card>
     </>
   );

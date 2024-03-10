@@ -60,7 +60,7 @@ const Rose: React.FC<any> = () => {
         direction: 'center',
       })
       .axis('x', { position: 'inner' })
-      .animate('enter', { type: 'waveIn' });
+      .animate(false);
     chart.render();
 
     return () => chart.destroy();

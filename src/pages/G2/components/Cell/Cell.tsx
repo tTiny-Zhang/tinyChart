@@ -25,7 +25,7 @@ const Cell: React.FC<any> = () => {
       .encode('color', 'temp_max')
       .style('inset', 0.5)
       .scale('color', { palette: 'gnBu' })
-      .animate('enter', { type: 'fadeIn' });
+      .animate(false);
 
     chart.render();
     return () => chart.destroy();

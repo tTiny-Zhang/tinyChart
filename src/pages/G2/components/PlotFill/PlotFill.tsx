@@ -29,7 +29,7 @@ const PlotFill: React.FC<any> = () => {
         type: 'stackEnter',
         groupBy: ['x', 'y'],
         orderBy: 'color',
-        duration: 2000,
+        duration: 1000,
       })
       .legend('color', false)
       .scale('y', { range: [0, 1] })

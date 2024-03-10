@@ -37,7 +37,7 @@ const Pie: React.FC<any> = () => {
         fontSize: 9,
         dy: 12,
       })
-      .animate('enter', { type: 'waveIn' })
+      .animate(false)
       .legend(false);
     chart.render();
     return () => chart.destroy();

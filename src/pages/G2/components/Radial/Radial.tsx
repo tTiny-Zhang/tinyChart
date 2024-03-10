@@ -31,7 +31,7 @@ const Radial: React.FC<any> = () => {
       .style('radius', 20)
       .axis('x', { title: false })
       .axis('y', false)
-      .animate('enter', { type: 'waveIn', duration: 1000 });
+      .animate(false);
     chart.render();
     return () => chart.destroy();
   }, []);

@@ -13,7 +13,7 @@ const G2: React.FC<any> = () => {
   return (
     <>
       <Card className={style.container} title="G2">
-        <Card.Grid style={{ ...gridStyle, width: '100%' }} key="Interval">
+        <Card.Grid style={{ ...gridStyle, width: '100%' }} key="PlotFill">
           <Chart.PlotFill />
         </Card.Grid>
         <Card.Grid style={gridStyle} key="Interval">
